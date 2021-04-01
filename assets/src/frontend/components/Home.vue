@@ -304,7 +304,7 @@
                                     </td>
                                     <td class="action"><span class="flaticon-cancel-music" @click.prevent="removeCustomerNote"></span></td>
                                 </tr>
-                                <tr class="pay-now" @click="initPayment()">
+                                <tr class="pay-now" :class="cartdata.line_items.length > 0 ? '' : 'disabled'" @click="initPayment()">
                                   <td>{{ __( 'Pay Now', 'wepos' ) }}</td>
                                   <td class="amount">{{ formatPrice( $store.getters['Cart/getTotal'] ) }}</td>
                                   <td class="icon"><span class="flaticon-right-arrow"></span></td>
@@ -621,6 +621,7 @@ export default {
             availableGatewayContent: wepos.hooks.applyFilters( 'wepos_avaialable_gateway_content', [] ),
             afterMainContents: wepos.hooks.applyFilters( 'wepos_after_main_content', [] ),
             beforCartPanels: wepos.hooks.applyFilters( 'wepos_before_cart_panel', [] ),
+            isDisablePayment: true,
         }
     },
     computed: {
@@ -712,6 +713,9 @@ export default {
         'selectedGateway'( newdata, olddata ) {
             var gateway = weLo_.find( this.availableGateways, { 'id' : newdata } );
             this.$store.dispatch( 'Order/setGatewayAction', gateway );
+        },
+        productView( newdata, _ ) {
+            localStorage.setItem('wepos_settings__product_view', newdata);
         }
     },
 
@@ -1097,6 +1101,7 @@ export default {
 
         if ( typeof(localStorage) != 'undefined' ) {
             try {
+                this.productView = localStorage.getItem( 'wepos_settings__product_view' );
                 var cartdata = JSON.parse( localStorage.getItem( 'cartdata' ) );
                 var orderdata = JSON.parse( localStorage.getItem( 'orderdata' ) );
                 cartdata = await this.maybeRemoveDeletedProduct( cartdata );
@@ -1987,6 +1992,12 @@ export default {
                                 color: #fff;
                                 cursor: pointer;
                                 font-size: 16px;
+
+                                &.disabled {
+                                    background: #dedede;
+                                    cursor: no-drop;
+                                    color: #bbbbbb;
+                                }
 
                                 td {
                                     padding: 18px 10px 18px 12px;

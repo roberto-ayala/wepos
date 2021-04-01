@@ -449,21 +449,23 @@ body {
                         display: none;
 
                         &:checked + span.gateway {
-                            border: 1px solid rgba(26,188,156,.7);
+                            border: 2px solid rgba(26,188,156,.7);
                         }
                     }
                     span.gateway {
                         text-align: center;
                         height: 100px;
                         background: rgba(26,188,156,.1);
-                        line-height: 100px;
                         font-size: 20px;
                         cursor: pointer;
                         color: #16a085;
                         box-sizing: border-box;
                         display: block;
-                        border: 1px solid rgba(26,188,156,.1);
+                        border: 2px solid transparent;
                         border-radius: 3px;
+                        display: grid;
+                        place-items: center;
+
                     }
                     span.grid-placeholder {
                         background: #fafafa;
@@ -592,7 +594,7 @@ body {
             font-size: 15px;
             border-radius: 3px;
             margin: 0px 10px;
-            width: 150px;
+            // width: 150px;
             cursor: pointer;
             &.print-btn {
                 background: #9013FE;

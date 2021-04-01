@@ -1145,7 +1145,8 @@ let Modal = wepos_get_lib('Modal');
             quickLinkListStart: wepos.hooks.applyFilters('wepos_quick_links_start', []),
             availableGatewayContent: wepos.hooks.applyFilters('wepos_avaialable_gateway_content', []),
             afterMainContents: wepos.hooks.applyFilters('wepos_after_main_content', []),
-            beforCartPanels: wepos.hooks.applyFilters('wepos_before_cart_panel', [])
+            beforCartPanels: wepos.hooks.applyFilters('wepos_before_cart_panel', []),
+            isDisablePayment: true
         };
     },
     computed: {
@@ -1237,6 +1238,9 @@ let Modal = wepos_get_lib('Modal');
         'selectedGateway'(newdata, olddata) {
             var gateway = weLo_.find(this.availableGateways, { 'id': newdata });
             this.$store.dispatch('Order/setGatewayAction', gateway);
+        },
+        productView(newdata, _) {
+            localStorage.setItem('wepos_settings__product_view', newdata);
         }
     },
 
@@ -1609,6 +1613,7 @@ let Modal = wepos_get_lib('Modal');
 
         if (typeof localStorage != 'undefined') {
             try {
+                this.productView = localStorage.getItem('wepos_settings__product_view');
                 var cartdata = JSON.parse(localStorage.getItem('cartdata'));
                 var orderdata = JSON.parse(localStorage.getItem('orderdata'));
                 cartdata = await this.maybeRemoveDeletedProduct(cartdata);
@@ -7545,6 +7550,10 @@ var render = function() {
                             "tr",
                             {
                               staticClass: "pay-now",
+                              class:
+                                _vm.cartdata.line_items.length > 0
+                                  ? ""
+                                  : "disabled",
                               on: {
                                 click: function($event) {
                                   _vm.initPayment()
