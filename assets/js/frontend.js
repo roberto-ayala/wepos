@@ -8382,7 +8382,8 @@ var render = function() {
                                                   expression: "paymentCode"
                                                 }
                                               ],
-                                              ref: "cashamount",
+                                              ref: "paymentCode",
+                                              staticClass: "paymentCode",
                                               attrs: { type: "text" },
                                               domProps: {
                                                 value: _vm.paymentCode

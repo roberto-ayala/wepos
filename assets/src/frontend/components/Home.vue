@@ -528,7 +528,7 @@
                                             <div class="input-wrap">
                                                 <p>Nº Transacción</p>
                                                 <div class="input-addon">
-                                                    <input type="text" v-model="paymentCode" ref="cashamount">
+                                                    <input class="paymentCode" type="text" v-model="paymentCode" ref="paymentCode">
                                                 </div>
                                             </div>
                                         </div>
