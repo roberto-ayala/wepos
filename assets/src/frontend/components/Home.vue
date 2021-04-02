@@ -510,7 +510,7 @@
                                                 <p>{{ __( 'Cash', 'wepos' ) }}</p>
                                                 <div class="input-addon">
                                                     <span class="currency">{{ wepos.currency_format_symbol }}</span>
-                                                    <input type="text" v-model="cashAmount" ref="cashamount">
+                                                    <input v-focus type="text" v-model="cashAmount" ref="cashamount">
                                                 </div>
                                             </div>
                                         </div>
@@ -528,7 +528,7 @@
                                             <div class="input-wrap">
                                                 <p>Nº Transacción</p>
                                                 <div class="input-addon">
-                                                    <input class="paymentCode" type="text" v-model="paymentCode" ref="paymentCode">
+                                                    <input v-focus class="paymentCode" type="text" v-model="paymentCode" ref="paymentcode">
                                                 </div>
                                             </div>
                                         </div>
@@ -594,6 +594,14 @@ export default {
         PrintReceipt,
         PrintReceiptHtml,
         CustomerNote
+    },
+    directives: {
+      focus: {
+        // Definición de directiva
+        inserted: function (el) {
+          el.focus()
+        }
+      }
     },
 
     data () {
@@ -726,9 +734,17 @@ export default {
                 this.selectedCategory = weLo_.find( this.categories, { id : parseInt( this.$route.query.category ) } )
             }
         },
-        'selectedGateway'( newdata, olddata ) {
+        async 'selectedGateway'( newdata, olddata ) {
             var gateway = weLo_.find( this.availableGateways, { 'id' : newdata } );
             this.$store.dispatch( 'Order/setGatewayAction', gateway );
+            await new Promise(resolve => setTimeout(resolve, 100));
+            console.log(this.$refs);//.cashamount.focus();
+            if (this.$refs['cashamount']) {
+                this.$refs['cashamount'].focus();
+            }
+            if (this.$refs['paymentcode']) {
+                this.$refs['paymentcode'].focus();
+            }
         },
         productView( newdata, _ ) {
             localStorage.setItem('wepos_settings__product_view', newdata);

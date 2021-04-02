@@ -1120,6 +1120,14 @@ let Modal = wepos_get_lib('Modal');
         PrintReceiptHtml: __WEBPACK_IMPORTED_MODULE_6__PrintReceiptHtml_vue__["a" /* default */],
         CustomerNote: __WEBPACK_IMPORTED_MODULE_7__CustomerNote_vue__["a" /* default */]
     },
+    directives: {
+        focus: {
+            // Definición de directiva
+            inserted: function (el) {
+                el.focus();
+            }
+        }
+    },
 
     data() {
         return {
@@ -1251,9 +1259,17 @@ let Modal = wepos_get_lib('Modal');
                 this.selectedCategory = weLo_.find(this.categories, { id: parseInt(this.$route.query.category) });
             }
         },
-        'selectedGateway'(newdata, olddata) {
+        async 'selectedGateway'(newdata, olddata) {
             var gateway = weLo_.find(this.availableGateways, { 'id': newdata });
             this.$store.dispatch('Order/setGatewayAction', gateway);
+            await new Promise(resolve => setTimeout(resolve, 100));
+            console.log(this.$refs); //.cashamount.focus();
+            if (this.$refs['cashamount']) {
+                this.$refs['cashamount'].focus();
+            }
+            if (this.$refs['paymentcode']) {
+                this.$refs['paymentcode'].focus();
+            }
         },
         productView(newdata, _) {
             localStorage.setItem('wepos_settings__product_view', newdata);
@@ -8315,6 +8331,10 @@ var render = function() {
                                           _c("input", {
                                             directives: [
                                               {
+                                                name: "focus",
+                                                rawName: "v-focus"
+                                              },
+                                              {
                                                 name: "model",
                                                 rawName: "v-model",
                                                 value: _vm.cashAmount,
@@ -8376,13 +8396,17 @@ var render = function() {
                                             _c("input", {
                                               directives: [
                                                 {
+                                                  name: "focus",
+                                                  rawName: "v-focus"
+                                                },
+                                                {
                                                   name: "model",
                                                   rawName: "v-model",
                                                   value: _vm.paymentCode,
                                                   expression: "paymentCode"
                                                 }
                                               ],
-                                              ref: "paymentCode",
+                                              ref: "paymentcode",
                                               staticClass: "paymentCode",
                                               attrs: { type: "text" },
                                               domProps: {
