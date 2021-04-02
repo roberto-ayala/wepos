@@ -1077,6 +1077,21 @@ exports.default = {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -1146,7 +1161,8 @@ let Modal = wepos_get_lib('Modal');
             availableGatewayContent: wepos.hooks.applyFilters('wepos_avaialable_gateway_content', []),
             afterMainContents: wepos.hooks.applyFilters('wepos_after_main_content', []),
             beforCartPanels: wepos.hooks.applyFilters('wepos_before_cart_panel', []),
-            isDisablePayment: true
+            isDisablePayment: true,
+            paymentCode: null
         };
     },
     computed: {
@@ -1327,6 +1343,9 @@ let Modal = wepos_get_lib('Modal');
                 }, {
                     key: '_wepos_cash_change_amount',
                     value: self.changeAmount.toString()
+                }, {
+                    key: '_wepos_payment_code',
+                    value: self.paymentCode
                 }]
             }, this.orderdata, this.cartdata);
 
@@ -1336,6 +1355,8 @@ let Modal = wepos_get_lib('Modal');
             wepos.api.post(wepos.rest.root + wepos.rest.wcversion + '/orders', orderdata).done(response => {
                 wepos.api.post(wepos.rest.root + wepos.rest.posversion + '/payment/process', response).done(data => {
                     if (data.result == 'success') {
+                        this.paymentCode = null;
+
                         this.$router.push({
                             name: 'Home',
                             query: {
@@ -8331,6 +8352,56 @@ var render = function() {
                                       )
                                     ])
                                   ])
+                                ])
+                              ])
+                            ]
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.orderdata.payment_method == "rayala_wepos_debit" ||
+                        _vm.orderdata.payment_method == "rayala_wepos_credit"
+                          ? [
+                              _c("div", { staticClass: "payment-option" }, [
+                                _c("div", { staticClass: "payment-amount" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "input-part extended" },
+                                    [
+                                      _c("div", { staticClass: "input-wrap" }, [
+                                        _c("p", [_vm._v("Nº Transacción")]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "input-addon" },
+                                          [
+                                            _c("input", {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value: _vm.paymentCode,
+                                                  expression: "paymentCode"
+                                                }
+                                              ],
+                                              ref: "cashamount",
+                                              attrs: { type: "text" },
+                                              domProps: {
+                                                value: _vm.paymentCode
+                                              },
+                                              on: {
+                                                input: function($event) {
+                                                  if ($event.target.composing) {
+                                                    return
+                                                  }
+                                                  _vm.paymentCode =
+                                                    $event.target.value
+                                                }
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ])
+                                    ]
+                                  )
                                 ])
                               ])
                             ]

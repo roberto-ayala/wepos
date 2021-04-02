@@ -521,6 +521,21 @@
                                 </div>
                             </template>
 
+                            <template v-if="orderdata.payment_method == 'rayala_wepos_debit' || orderdata.payment_method == 'rayala_wepos_credit'">
+                                <div class="payment-option">
+                                    <div class="payment-amount">
+                                        <div class="input-part extended">
+                                            <div class="input-wrap">
+                                                <p>Nº Transacción</p>
+                                                <div class="input-addon">
+                                                    <input type="text" v-model="paymentCode" ref="cashamount">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+
                             <component
                                 v-for="(availableGatewayComponent, key ) in availableGatewayContent"
                                 :key="key"
@@ -622,6 +637,7 @@ export default {
             afterMainContents: wepos.hooks.applyFilters( 'wepos_after_main_content', [] ),
             beforCartPanels: wepos.hooks.applyFilters( 'wepos_before_cart_panel', [] ),
             isDisablePayment: true,
+            paymentCode: null,
         }
     },
     computed: {
@@ -805,6 +821,10 @@ export default {
                         {
                             key: '_wepos_cash_change_amount',
                             value: self.changeAmount.toString()
+                        },
+                        {
+                            key: '_wepos_payment_code',
+                            value: self.paymentCode
                         }
                     ]
                 }, this.orderdata, this.cartdata );
@@ -817,6 +837,8 @@ export default {
                 wepos.api.post( wepos.rest.root + wepos.rest.posversion + '/payment/process', response )
                 .done( data => {
                     if ( data.result == 'success' ) {
+                        this.paymentCode = null;
+
                         this.$router.push({
                             name: 'Home',
                             query: {
