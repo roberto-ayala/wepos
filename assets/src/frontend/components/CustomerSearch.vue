@@ -388,7 +388,7 @@ export default {
 
 <style lang="less">
 .wepos-new-customer-form {
-    padding: 20px;
+    padding: 20px 0;
 
     .customer-country, .customer-state {
         &.multiselect--active {

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wePOS - Point Of Sale (POS) for WooCommerce 1.1.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wepos\n"
-"POT-Creation-Date: 2021-04-01 03:57:56+00:00\n"
+"POT-Creation-Date: 2021-04-08 03:39:37+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,11 +15,11 @@ msgstr ""
 
 #: assets/js/admin.js:122 assets/js/admin.js:369 assets/js/admin.js:461
 #: assets/js/admin.js:1429 assets/js/bootstrap.js:965
-#: assets/js/frontend.js:3170 assets/js/frontend.js:3352
-#: assets/js/frontend.js:3436 assets/js/frontend.js:3946
-#: assets/js/frontend.js:4986 assets/js/frontend.js:5153
-#: assets/js/frontend.js:5258 assets/js/frontend.js:5633
-#: assets/js/frontend.js:5744 assets/js/vendor.js:17709
+#: assets/js/frontend.js:3208 assets/js/frontend.js:3390
+#: assets/js/frontend.js:3474 assets/js/frontend.js:3984
+#: assets/js/frontend.js:5024 assets/js/frontend.js:5191
+#: assets/js/frontend.js:5296 assets/js/frontend.js:5671
+#: assets/js/frontend.js:5782 assets/js/vendor.js:17709
 #: assets/js/vendor.js:17809 assets/js/vendor.js:27657
 #: assets/js/vendor.js:28233 assets/js/vendor.js:28343
 #: assets/js/vendor.js:28463 assets/js/vendor.js:28485
@@ -88,54 +88,54 @@ msgstr ""
 msgid "label"
 msgstr ""
 
-#: assets/js/frontend.js:1230 assets/js/frontend.js:1545
-#: assets/js/frontend.js:1573 assets/js/frontend.min.js:1
-#: assets/src/frontend/components/Home.vue:705
-#: assets/src/frontend/components/Home.vue:1032
-#: assets/src/frontend/components/Home.vue:1060
+#: assets/js/frontend.js:1255 assets/js/frontend.js:1583
+#: assets/js/frontend.js:1611 assets/js/frontend.min.js:1
+#: assets/src/frontend/components/Home.vue:730
+#: assets/src/frontend/components/Home.vue:1071
+#: assets/src/frontend/components/Home.vue:1099
 msgid "All categories"
 msgstr ""
 
-#: assets/js/frontend.js:1399 assets/js/frontend.min.js:1
+#: assets/js/frontend.js:1437 assets/js/frontend.min.js:1
 #: assets/src/frontend/components/Home.vue:261
 #: assets/src/frontend/components/Home.vue:456
-#: assets/src/frontend/components/Home.vue:880
+#: assets/src/frontend/components/Home.vue:919
 #: assets/src/frontend/components/printReceiptHtml.vue:43
 msgid "Discount"
 msgstr ""
 
-#: assets/js/frontend.js:1417 assets/js/frontend.min.js:1
+#: assets/js/frontend.js:1455 assets/js/frontend.min.js:1
 #: assets/src/frontend/components/Home.vue:282
 #: assets/src/frontend/components/Home.vue:460
-#: assets/src/frontend/components/Home.vue:898
+#: assets/src/frontend/components/Home.vue:937
 #: assets/src/frontend/components/printReceiptHtml.vue:47
 msgid "Fee"
 msgstr ""
 
-#: assets/js/frontend.js:1784 assets/js/frontend.min.js:1
+#: assets/js/frontend.js:1822 assets/js/frontend.min.js:1
 #: assets/src/frontend/components/ProductSearch.vue:120
 msgid "Scan your product"
 msgstr ""
 
-#: assets/js/frontend.js:1784 assets/js/frontend.min.js:1
+#: assets/js/frontend.js:1822 assets/js/frontend.min.js:1
 #: assets/src/frontend/components/ProductSearch.vue:120
 msgid "Search product by typing"
 msgstr ""
 
-#: assets/js/frontend.js:2423 assets/js/frontend.min.js:1
+#: assets/js/frontend.js:2461 assets/js/frontend.min.js:1
 #: assets/src/frontend/components/CustomerSearch.vue:334
 msgid "Please enter an email address for customer"
 msgstr ""
 
-#: assets/js/frontend.js:4920
+#: assets/js/frontend.js:4958
 msgid "aside"
 msgstr ""
 
-#: assets/js/frontend.js:5547
+#: assets/js/frontend.js:5585
 msgid "tr"
 msgstr ""
 
-#: assets/js/frontend.js:8419
+#: assets/js/frontend.js:8520
 msgid "td"
 msgstr ""
 
@@ -439,7 +439,7 @@ msgid "Go to payment receipt"
 msgstr ""
 
 #: assets/js/frontend.min.js:1 assets/src/frontend/components/Home.vue:389
-#: assets/src/frontend/components/Home.vue:534
+#: assets/src/frontend/components/Home.vue:549
 msgid "Process Payment"
 msgstr ""
 
@@ -473,7 +473,7 @@ msgstr ""
 msgid "Change money"
 msgstr ""
 
-#: assets/js/frontend.min.js:1 assets/src/frontend/components/Home.vue:533
+#: assets/js/frontend.min.js:1 assets/src/frontend/components/Home.vue:548
 msgid "Back to Sale"
 msgstr ""
 
