@@ -36,6 +36,7 @@ class Frontend {
         if ( wp_validate_boolean( get_query_var( 'wepos' ) ) ) {
             //check if user is logged in otherwise redirect to login page
             if ( ! is_user_logged_in() || ! wepos_is_frontend() ) {
+                error_log('wepos_is_frontend: ' . wepos_is_frontend());
                 wp_redirect( get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ) );
                 exit();
             }

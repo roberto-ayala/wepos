@@ -1641,6 +1641,11 @@ let Modal = wepos_get_lib('Modal');
     },
 
     async created() {
+
+        if (localStorage.getItem('wepos_settings__product_view') == null) {
+            localStorage.setItem('wepos_settings__product_view', 'list');
+        }
+
         this.fetchSettings();
         this.fetchTaxes();
         this.fetchProducts();
@@ -4032,11 +4037,11 @@ var render = function() {
                   },
                   [
                     _c("stop", {
-                      attrs: { "stop-color": "#C444FB", offset: "0%" }
+                      attrs: { "stop-color": "#303289", offset: "0%" }
                     }),
                     _vm._v(" "),
                     _c("stop", {
-                      attrs: { "stop-color": "#5B56D7", offset: "100%" }
+                      attrs: { "stop-color": "#303289", offset: "100%" }
                     })
                   ],
                   1

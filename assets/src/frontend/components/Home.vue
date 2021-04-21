@@ -1130,6 +1130,11 @@ export default {
     },
 
     async created() {
+
+        if (localStorage.getItem('wepos_settings__product_view') == null) {
+            localStorage.setItem( 'wepos_settings__product_view', 'list' );
+        }
+
         this.fetchSettings();
         this.fetchTaxes();
         this.fetchProducts();
@@ -1188,7 +1193,7 @@ export default {
                         width: 100%;
                         font-size: 14px;
                         height: 35px;
-                        border: 1px solid #E9EDF0;
+                        border: 1px solid var(--border-color);
                         line-height: 10px;
                         padding-right: 120px;
                         padding-left: 32px;
@@ -1197,17 +1202,17 @@ export default {
                         box-shadow: 0 3px 15px 0 rgba(0,0,0,.02);
 
                         &::placeholder {
-                            color: #999DAC;
+                            color: var(--color-placeholder);
                             font-size: 13px;
                         }
 
                         &:-ms-input-placeholder {
-                            color: #999DAC;
+                            color: var(--color-placeholder);
                             font-size: 13px;
                         }
 
                         &::-ms-input-placeholder {
-                            color: #999DAC;
+                            color: var(--color-placeholder);
                             font-size: 13px;
                         }
 
@@ -1220,7 +1225,7 @@ export default {
                         position: absolute;
                         left: 10px;
                         top: 8px;
-                        color: #3B80F4;
+                        color: var(--primary-color);
                         height: 10px;
 
                         &:before {
@@ -1245,7 +1250,7 @@ export default {
                             line-height: 14px;
 
                             &.active {
-                                background: #3B80F4;
+                                background: var(--primary-color);
                                 color: #fff;
                             }
                             &:first-child {
@@ -1263,7 +1268,7 @@ export default {
                         position: absolute;
                         width: 100%;
                         box-sizing: border-box;
-                        border: 1px solid #e9edf0;
+                        border: 1px solid var(--border-color);
                         border-top: none;
                         border-bottom-left-radius: 3px;
                         border-bottom-right-radius: 3px;
@@ -1287,7 +1292,7 @@ export default {
                                     color: #212121;
                                     padding: 8px 10px;
                                     display: block;
-                                    border-bottom: 1px solid #e9edf0;
+                                    border-bottom: 1px solid var(--border-color);
 
                                     span {
                                         font-size: 11px;
@@ -1330,7 +1335,7 @@ export default {
                         .suggession {
                             padding: 12px;
                             background: #F6F7FB;
-                            color: #999DAC;
+                            color: var(--color-placeholder);
                             font-size: 11px;
                             border-top: 1px solid #ECEEF0;
 
@@ -1340,13 +1345,13 @@ export default {
                                 span {
                                     &:before {
                                         font-size: 9px;
-                                        color: #5D5D5D;
+                                        color: var(--muted-text-color);
                                         margin-right: 2px;
                                     }
                                 }
 
                                 strong {
-                                    color: #5D5D5D;
+                                    color: var(--muted-text-color);
                                     margin-right: 2px;
                                 }
                             }
@@ -1367,7 +1372,7 @@ export default {
                     appearance:none;
 
                     width: 100%;
-                    border: 1px solid #E9EDF0;
+                    border: 1px solid var(--border-color);
                     background: #fff;
                     padding: 9px;
                     border-radius: 3px;
@@ -1403,13 +1408,13 @@ export default {
                     padding: 8px 10px;
                     background: #fff;
                     display: inline-block;
-                    border: 1px solid #E9EDF0;
+                    border: 1px solid var(--border-color);
                     box-shadow: 0 3px 15px 0 rgba(0,0,0,.02);
                     color: #BDC0C9;
                     cursor: pointer;
 
                     &.active {
-                        color: #3B80F4;
+                        color: var(--primary-color);
                     }
 
                     &:before {
@@ -1436,7 +1441,7 @@ export default {
                 position: absolute;
                 top: 5px;
                 right: 15px;
-                color: #9b59b6;
+                color: var(--violet-color);
                 cursor: pointer;
 
                 &:before {
@@ -1469,7 +1474,7 @@ export default {
 
                     a {
                         font-size: 13px;
-                        color: #9B59B6;
+                        color: var(--violet-color);
                         text-decoration: none;
                     }
                 }
@@ -1512,7 +1517,7 @@ export default {
                             margin-top: -3px;
                             color: #212121;
                             font-size: 13px;
-                            border-top: 1px solid #E9EDF0;
+                            border-top: 1px solid var(--border-color);
                         }
                         .add-product-icon {
                             position: absolute;
@@ -1622,7 +1627,7 @@ export default {
                             top: 35%;
                             right: 3%;
                             &:before {
-                                color: #1A9ED4;
+                                color: var(--primary-color);
                                 font-weight: normal;
                             }
                         }
@@ -1670,7 +1675,7 @@ export default {
                     height: 33px;
                     font-size: 14px;
                     height: 35px;
-                    border: 1px solid #E9EDF0;
+                    border: 1px solid var(--border-color);
                     line-height: 10px;
                     padding-left: 35px;
                     box-sizing: border-box;
@@ -1678,17 +1683,17 @@ export default {
                     box-shadow: 0 3px 15px 0 rgba(0,0,0,.02);
 
                     &::placeholder {
-                        color: #999DAC;
+                        color: var(--color-placeholder);
                         font-size: 13px;
                     }
 
                     &:-ms-input-placeholder {
-                        color: #999DAC;
+                        color: var(--color-placeholder);
                         font-size: 13px;
                     }
 
                     &::-ms-input-placeholder {
-                        color: #999DAC;
+                        color: var(--color-placeholder);
                         font-size: 13px;
                     }
 
@@ -1715,7 +1720,7 @@ export default {
                     width: 100%;
                     z-index: 99;
                     box-sizing: border-box;
-                    border: 1px solid #e9edf0;
+                    border: 1px solid var(--border-color);
                     border-top: none;
                     border-bottom-left-radius: 3px;
                     border-bottom-right-radius: 3px;
@@ -1739,7 +1744,7 @@ export default {
                                 color: #212121;
                                 padding: 8px 10px;
                                 display: block;
-                                border-bottom: 1px solid #e9edf0;
+                                border-bottom: 1px solid var(--border-color);
 
                                 span {
                                     font-size: 13px;
@@ -1795,7 +1800,7 @@ export default {
                     .suggession {
                         padding: 12px;
                         background: #F6F7FB;
-                        color: #999DAC;
+                        color: var(--color-placeholder);
                         font-size: 11px;
                         border-top: 1px solid #ECEEF0;
 
@@ -1805,13 +1810,13 @@ export default {
                             span {
                                 &:before {
                                     font-size: 9px;
-                                    color: #5D5D5D;
+                                    color: var(--muted-text-color);
                                     margin-right: 2px;
                                 }
                             }
 
                             strong {
-                                color: #5D5D5D;
+                                color: var(--muted-text-color);
                                 margin-right: 2px;
                             }
                         }
@@ -1910,7 +1915,7 @@ export default {
 
                                         &:hover {
                                             &:before {
-                                                background: #E9485E;
+                                                background: var(--red-color);
                                                 color: #FFFFFF;
                                                 border: none;
                                             }
@@ -1925,7 +1930,7 @@ export default {
 
                                     a {
                                         text-decoration: none;
-                                        color: #3B80F4;
+                                        color: var(--primary-color);
                                         font-size: 12px;
                                         padding: 5px 8px;
                                         background: #fff;
@@ -1982,23 +1987,23 @@ export default {
                                         }
 
                                         &::placeholder {
-                                            color: #999DAC;
+                                            color: var(--color-placeholder);
                                             font-size: 13px;
                                         }
 
                                         &:-ms-input-placeholder {
-                                            color: #999DAC;
+                                            color: var(--color-placeholder);
                                             font-size: 13px;
                                         }
 
                                         &::-ms-input-placeholder {
-                                            color: #999DAC;
+                                            color: var(--color-placeholder);
                                             font-size: 13px;
                                         }
                                     }
                                     button {
-                                        border: 1px solid #3B80F4;
-                                        background: #3B80F4;
+                                        border: 1px solid var(--primary-color);
+                                        background: var(--primary-color);
                                         color: #fff;
                                         padding: 5px 8px;
                                         border-radius: 3px;
@@ -2012,8 +2017,8 @@ export default {
                                         }
 
                                         &:disabled {
-                                            background: #76A2ED;
-                                            border-color: #76A2ED;
+                                            background: var(--primary-color-disable);
+                                            border-color: var(--primary-color-disable);
                                         }
                                     }
                                 }
@@ -2026,7 +2031,7 @@ export default {
                             }
 
                             &.pay-now {
-                                background: #1ABC9C;
+                                background: var(--secondary-color);;
                                 color: #fff;
                                 cursor: pointer;
                                 font-size: 16px;
@@ -2066,7 +2071,7 @@ export default {
                             text-align: left;
                             border-bottom: 1px solid #ECEEF0;
                             box-shadow: 0 3px 15px 0px rgba(0,0,0,.04);
-                            color: #3B80F4;
+                            color: var(--primary-color);
                             font-size: 13px;
 
                             th {
@@ -2154,8 +2159,8 @@ export default {
                                                 -o-transform: rotate(90deg);
                                                 -ms-transform: rotate(90deg);
                                                 transform: rotate(89deg);
-                                                background: #3b80f4;
-                                                border: .84px solid #3b80f4;
+                                                background: var(--primary-color);
+                                                border: .84px solid var(--primary-color);
                                             }
                                         }
                                     }
@@ -2170,7 +2175,7 @@ export default {
 
                                         &:hover {
                                             &:before {
-                                                background: #E9485E;
+                                                background: var(--red-color);
                                                 color: #FFFFFF;
                                                 border: none;
                                             }
@@ -2209,7 +2214,7 @@ export default {
                                                 display: inline-block;
                                                 font-size: 18px;
                                                 font-weight: bold;
-                                                color: #999DAC;
+                                                color: var(--color-placeholder);
                                                 background: #fff;
                                                 margin-right: 3px;
                                                 width: 25px;
@@ -2220,7 +2225,7 @@ export default {
 
                                                 &.add {
                                                     color: #fff;
-                                                    background: #3B80F4;
+                                                    background: var(--primary-color);
                                                 }
                                             }
                                         }

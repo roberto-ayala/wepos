@@ -320,9 +320,9 @@ export default {
 
                     &:checked {
                         + .box {
-                            background: #1ABC9C;
+                            background: var(--secondary-color);
                             color: #fff;
-                            border: 1px solid #1ABC9C;
+                            border: 1px solid var(--secondary-color);
                         }
                     }
                 }
@@ -343,7 +343,7 @@ export default {
 .add-variation-btn {
     border: none;
     padding: 10px 10px;
-    background: #3B80F4;
+    background: var(--primary-color);;
     color: #fff;
     border-radius: 3px;
     width: 150px;
@@ -355,7 +355,7 @@ export default {
     }
 
     &:disabled {
-        background: #76A2ED;
+        background: var(--primary-color-disable);;
     }
 }
 

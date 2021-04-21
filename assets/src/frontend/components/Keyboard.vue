@@ -212,7 +212,7 @@
 <style lang="less">
     aside.vue-keyboard {
         .vue-keyboard-row[data-keys="3"] {
-            border-bottom: 1px solid #ECEEF0;
+            border-bottom: 1px solid var(--border-color);;
 
             button {
                 border: none;
@@ -223,7 +223,7 @@
                 padding: 5px 20px;
                 display: inline-block;
                 cursor: pointer;
-                border-right: 1px solid #ECEEF0;
+                border-right: 1px solid var(--border-color);;
                 color: #212121;
                 &:last-child {
                     border-right:none;
@@ -237,7 +237,7 @@
             }
 
             &:first-child {
-                border-top: 1px solid #ECEEF0;
+                border-top: 1px solid var(--border-color);;
             }
         }
 
@@ -247,7 +247,7 @@
                 width: 50%;
                 padding: 15px;
                 font-size: 14px;
-                background: #3B80F4;
+                background: var(--primary-color);;
                 color: #FFF;
                 border-right: 1px solid #fff;
                 &:last-child {

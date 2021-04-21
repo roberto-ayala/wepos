@@ -85,15 +85,15 @@
                     padding: 6px 25px;
                     font-size: 14px;
                     border-radius: 3px;
-                    border: 1px solid #3b80f4;
+                    border: 1px solid var(--primary-color);
                     color: #fff;
-                    background: #3b80f4;
+                    background: var(--primary-color);
                     cursor: pointer;
 
                     &:disabled {
                         cursor: no-drop;
-                        background: #76A2ED;
-                        border-color: #76A2ED;
+                        background: var(--primary-color-disable);
+                        border-color: var(--primary-color-disable);
                     }
                 }
             }

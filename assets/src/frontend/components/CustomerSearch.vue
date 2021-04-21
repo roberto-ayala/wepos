@@ -4,8 +4,8 @@
             <svg class="customer-icon" width="19px" height="19px" viewBox="0 0 19 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <defs>
                     <linearGradient x1="14.5524094%" y1="14.6909544%" x2="82.7722259%" y2="85.2519444%" id="linearGradient-1">
-                        <stop stop-color="#C444FB" offset="0%"></stop>
-                        <stop stop-color="#5B56D7" offset="100%"></stop>
+                        <stop stop-color="#303289" offset="0%"></stop>
+                        <stop stop-color="#303289" offset="100%"></stop>
                     </linearGradient>
                 </defs>
                 <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -400,8 +400,8 @@ export default {
 
     button.add-new-customer-btn {
         &:disabled {
-            background: #76a2ed;
-            border: 1px solid #76a2ed;
+            background: var(--primary-color-disable);
+            border: 1px solid var(--primary-color-disable);
             cursor: no-drop !important;
         }
     }
