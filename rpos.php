@@ -1,13 +1,12 @@
 <?php
 /*
-Plugin Name: wePOS - Point Of Sale (POS) for WooCommerce
-Plugin URI: https://wedevs.com/wepos
-Description: A beautiful and fast Point of Sale (POS) system for WooCommerce
-Version: 1.1.5
-Author: weDevs
-Author URI: https://wedevs.com/
+Plugin Name: RPOS - Point Of Sale (POS) for WooCommerce
+Plugin URI: https://rayala.org/rpos
+Description: Based on wepos
+Version: 2.0.2
+Author: Roberto Ayala
+Author URI: https://rayala.org/
 Text Domain: wepos
-Domain Path: /languages
 WC requires at least: 3.0
 WC tested up to: 5.1.0
 License: GPL2
@@ -15,7 +14,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 */
 
 /**
- * Copyright (c) YEAR weDevs (email: info@wedevs.com). All rights reserved.
+ * Copyright (c) rayala.org. All rights reserved.
  *
  * Released under the GPL license
  * http://www.opensource.org/licenses/gpl-license.php
@@ -90,7 +89,7 @@ final class WePOS
         add_action('woocommerce_init', array( $this, 'on_wc_init' ));
 
         // Handle appseror tracker
-        $this->appsero_init_tracker_wepos();
+        // $this->appsero_init_tracker_wepos();
     }
 
     /**
@@ -357,7 +356,7 @@ final class WePOS
      */
     public function localization_setup()
     {
-        load_plugin_textdomain('wepos', false, dirname(plugin_basename(__FILE__)) . '/languages/');
+        load_plugin_textdomain( 'wepos', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
     }
 
     /**

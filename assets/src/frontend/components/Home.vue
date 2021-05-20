@@ -945,7 +945,7 @@ export default {
             }
 
             if ( ( this.totalPages >= this.page ) ) {
-                wepos.api.get( wepos.rest.root + wepos.rest.posversion + '/products?status=publish&per_page=30&page=' + this.page )
+                wepos.api.get( wepos.rest.root + wepos.rest.posversion + '/products?status=publish&per_page=100&page=' + this.page )
                 .done( ( response, status, xhr ) => {
                     this.products = this.products.concat( response );
                     this.page += 1;
